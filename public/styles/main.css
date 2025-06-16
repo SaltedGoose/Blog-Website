@@ -63,3 +63,11 @@ h1 {
 .post-heading{
     font-size: 50px;
 }
+
+.navbar-toggler {
+    border-color: white; /* optional: make hamburger icon border visible */
+  }
+
+.navbar-toggler-icon {
+filter: invert(1); /* makes the icon white */
+}
