@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include("partials/navbar.ejs") %>
+    <div id="add-main">
+        <form action="/update" method="post">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control inputs" id="exampleFormControlInput1" placeholder="Your Name" name="usersName" value="<%= name %>">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Blog Title</label>
+                <input type="text" class="form-control inputs" id="exampleFormControlInput1" placeholder="Your Blog Title" name="blogTitle" value="<%= title %>">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Blog</label>
+                <textarea class="form-control inputs" id="exampleFormControlTextarea1 blog-input" rows="8" name="blogText" placeholder="Enter your thoughts here..."><%= text %></textarea>
+            </div>
+            <input type="hidden" name="currentName" value="<%= name %>">
+            <button class="btn btn-primary" type="submit">Update</button>    
+        </form>
+        
+    </div>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

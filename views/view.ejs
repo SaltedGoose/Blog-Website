@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include("partials/navbar.ejs") %>
+    <div id="view-main">
+        <% if(locals.posts && locals.posts.length > 0) {%>
+            <div id="view-main-posts">
+                <% posts.forEach(post => { %>
+                    <div class="container form form-div">
+                        <form action="/updateBlog" method="post">
+                            <h2 class="post-heading"><strong><%= post.blogTitle  %></strong></h2>
+                            <input type="hidden" name="title" value="<%= post.blogTitle %>">
+                            <h3>By <%= post.name  %></h3>
+                            <input type="hidden" name="name" value="<%= post.name %>">
+                            <p><%= post.blogText  %></p>
+                            <input type="hidden" name="text" value="<%= post.blogText %>">
+                            <p><%= post.time %></p>
+                            <input type="hidden" name="text" value="<%= post.time %>">
+                            <button class="btn btn-outline-primary" type="submit">Update</button>
+                        </form>
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="title" value="<%= post.blogTitle %>">
+                            <input type="hidden" name="name" value="<%= post.name %>">
+                            <input type="hidden" name="text" value="<%= post.blogText %>">
+                            <button class="btn btn-outline-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <br>
+                    <hr>
+                <% }) %>
+            </div>
+        <% }else { %>
+            <h2 id="post-header">No Posts have been shared yet!</h2>
+        <% } %>
+    </div>
+    <%- include("partials/footer.ejs") %>  
+</body>
+</html>
