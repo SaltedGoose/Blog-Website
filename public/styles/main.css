@@ -69,5 +69,5 @@ h1 {
   }
 
 .navbar-toggler-icon {
-filter: invert(1); /* makes the icon white */
+    filter: invert(1); /* makes the icon white */
 }
